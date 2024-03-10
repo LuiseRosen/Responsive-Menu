@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .body {
+            overflow-x: hidden;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            height: 24px;
+            width: 24px;
+            background-color: rgb(98, 255, 0);
+        }
+
+        .menu {
+            top: 16px;
+            right: 16px;
+            width: 50px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        .overlay-menu {
+            transform: translateX(301px);
+            display: flex;
+            flex-direction: column;
+            display: flex;
+            position: absolute;
+            background-color: rgb(189, 173, 255);
+            height: 300px;
+            width: 300px;
+            z-index: 2;
+            right: 0;
+            top: 0;
+            transition: all 225ms ease-in-out; /* animation: rein und raus schweben */
+        }
+
+        .show-overlay-menu {
+            transform: translateX(0);
+        }
+    </style>
+
+    <script>
+        function showMenu() {
+            document.getElementById('menu').classList.add('show-overlay-menu');
+        }
+
+        function hideMenu() {
+            document.getElementById('menu').classList.remove('show-overlay-menu');
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="body"> <!-- alles muss in einen <div>, weil overflow: hidden auf dem Handy nicht funktioniert, wenn man es auf den <body> vergibt -->
+        <h1>Responsive Menu</h1>
+        <img onclick="showMenu()" src="./menu_icon.svg" class="menu" alt="">
+    
+        <div id="menu" class="overlay-menu">
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <button class="close-button" onclick="hideMenu()">x</button>
+        </div>
+    </div>
+    
+</body>
+
+</html>
